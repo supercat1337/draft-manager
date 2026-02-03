@@ -4,7 +4,7 @@
   "description": "A simple draft manager for chat apps",
   "homepage": "https://github.com/supercat1337/draft-manager",
   "repository": {
-    "url": "https://github.com/supercat1337/draft-manager"
+    "url": "git+https://github.com/supercat1337/draft-manager.git"
   },
   "main": "dist/draft-manager.esm.js",
   "type": "module",
