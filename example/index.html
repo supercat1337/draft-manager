@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>DraftManager Test Page</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1>📝 DraftManager Test Page</h1>
+
+            <!-- Configuration Section -->
+            <div class="section">
+                <h2>⚙️ Configuration</h2>
+                <div class="config">
+                    <div class="config-item">
+                        <label for="autosaveSeconds">Autosave Delay (seconds):</label>
+                        <input
+                            type="number"
+                            id="autosaveSeconds"
+                            value="3"
+                            min="0"
+                            max="10"
+                            step="0.5"
+                        />
+                    </div>
+                    <div class="config-item">
+                        <label for="historyLimit">History Limit:</label>
+                        <input type="number" id="historyLimit" value="50" min="1" max="100" />
+                    </div>
+                    <div class="config-item">
+                        <label for="minLengthToSave">Minimum Length to Save:</label>
+                        <input type="number" id="minLengthToSave" value="0" min="0" max="100" />
+                    </div>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="saveHistory" checked />
+                    <label for="saveHistory">Save History</label>
+                </div>
+            </div>
+
+            <!-- Input Section -->
+            <div class="section">
+                <h2>✍️ Message Input</h2>
+                <textarea id="messageInput" placeholder="Type your message here..."></textarea>
+
+                <div class="controls">
+                    <button id="startBtn" class="primary-btn">▶️ Start Tracking</button>
+                    <button id="stopBtn" class="secondary-btn">⏸️ Stop Tracking</button>
+                    <button id="saveBtn" class="secondary-btn">💾 Save Now</button>
+                    <button id="clearBtn" class="secondary-btn">🗑️ Clear Input</button>
+                    <button id="forceSaveBtn" class="secondary-btn">⚡ Force Save</button>
+                    <button id="cancelSaveBtn" class="secondary-btn">❌ Cancel Pending Save</button>
+                </div>
+            </div>
+
+            <!-- Status Section -->
+            <div class="section">
+                <h2>📊 Status</h2>
+                <div id="status" class="status status-inactive">
+                    DraftManager is INACTIVE. Click "Start Tracking" to begin.
+                </div>
+
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-label">Current Draft</div>
+                        <div id="currentDraft" class="stat-value">Empty</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">History Size</div>
+                        <div id="historySize" class="stat-value">0</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Last Saved</div>
+                        <div id="lastSaved" class="stat-value">Never</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History Section -->
+            <div class="section">
+                <h2>📚 Draft History</h2>
+                <div class="controls">
+                    <button id="clearHistoryBtn" class="danger-btn">🗑️ Clear History</button>
+                    <button id="getHistoryBtn" class="secondary-btn">📋 Get History</button>
+                </div>
+                <div id="historyList" class="history-section">
+                    <!-- History items will be added here -->
+                </div>
+            </div>
+
+            <!-- Event Log -->
+            <div class="section">
+                <h2>📋 Event Log</h2>
+                <div class="controls">
+                    <button id="clearLogBtn" class="secondary-btn">🗑️ Clear Log</button>
+                </div>
+                <div id="eventLog" class="log">
+                    <!-- Log entries will be added here -->
+                </div>
+            </div>
+        </div>
+
+        <script type="module" src="index.js" defer></script>
+    </body>
+</html>

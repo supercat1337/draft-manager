@@ -1,0 +1,24 @@
+{
+  "name": "draft-manager",
+  "version": "1.0.0",
+  "description": "A simple draft manager for chat apps",
+  "homepage": "https://github.com/supercat1337/draft-manager",
+  "repository": {
+    "url": "https://github.com/supercat1337/draft-manager"
+  },
+  "main": "dist/draft-manager.esm.js",
+  "type": "module",
+  "scripts": {
+    "test": "c8 ava",
+    "build": "npm run remove_type_files && npm run build_esm && npm run create_types",
+    "build_esm": "rollup ./src/index.js --file ./dist/draft-manager.esm.js --format es",
+    "build_esm_min": "esbuild --minify --bundle --platform=neutral --legal-comments=none ./dist/draft-manager.esm.js --outfile=./dist/draft-manager.esm.min.js",
+    "build_esm_bundle": "rollup ./src/index.js --file ./dist/draft-manager.bundle.esm.js --format es -p ./node_modules/@rollup/plugin-node-resolve",
+    "build_esm_bundle_min": "esbuild --minify --bundle --platform=neutral --legal-comments=none ./src/index.js --outfile=./dist/draft-manager.bundle.esm.min.js",
+    "create_types": "npx -p typescript tsc --project my.tsconfig.types.json",
+    "remove_type_files": "del /q *.d.ts *.d.ts.map && cd dist && del /s /q *.d.ts *.d.ts.map && cd .."
+  },
+  "moduleResolution": "",
+  "author": "Supercat1337",
+  "license": "MIT"
+}
